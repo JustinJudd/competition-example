@@ -1,0 +1,9 @@
+{{ $game := .game}}
+<div class="mdl-grid">
+{{range $i, $team := .Teams }}
+  <div class="mdl-cell mdl-cell--{{width}}-col">
+    <span>{{.Scores $i}}</span>
+    <span>{{$team.Name}}</span>
+  </div>
+{{ end }}
+</div>

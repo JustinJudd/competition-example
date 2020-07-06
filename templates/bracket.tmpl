@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link type="text/css" rel="stylesheet" href="/static/css/game.css">
+<link type="text/css" rel="stylesheet" href="/static/css/material.min.css">
+
+<script src="/static/js/material.min.js"></script>
+<link rel="stylesheet" href="/static/css/material-icons.css">
+<style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      .mini-bracket div {
+      	border-top: 1px solid;
+      }
+	  
+    </style>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  
+  
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col mdl-cell--order-1-tablet mdl-cell--order-1-phone mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--2-offset-desktop">
+            <div id="main-result">{{.inside | safeHTML}}</div>
+          </div>
+        </div>
+  
+  
+  </div>
+  </main>
+  
+</div>
+
+ 
+</body>
+
+</html>

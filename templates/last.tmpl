@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link type="text/css" rel="stylesheet" href="/static/css/game.css">
+<link type="text/css" rel="stylesheet" href="/static/css/material.min.css">
+
+<script src="/static/js/material.min.js"></script>
+<link rel="stylesheet" href="/static/css/material-icons.css">
+<style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      .mini-bracket div {
+      	border-top: 1px solid;
+      }
+	  
+    </style>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Robot Rumble</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <span class="mdl-layout-title">#RobotRumble</span>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--6-col-phone mdl-cell--6-col-tablet"><h3>Leaderboard</h3><div id="leaderboard-result"></div></div>
+        <div class="mdl-cell mdl-cell--10-col mdl-cell--order-1-tablet mdl-cell--order-1-phone mdl-cell--12-col-phone mdl-cell--12-col-tablet"><div id="main-result" style="max-height:90vh;"><h3>Tournament not yet started</h3></div></div>
+        
+        </div>
+  
+  
+  </div>
+  </main>
+  
+</div>
+
+  <script>
+if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("/events");
+    source.onmessage = function(event) {
+        document.getElementById("main-result").innerHTML = event.data + "<br>";
+    };
+	source.addEventListener('main', function(event) {
+    e = document.getElementById("main-result");
+      e.innerHTML = "<div id=\"main-inner\">" + event.data + "</div>";
+      
+      e2 = document.getElementById("main-inner");
+      if (e2.clientHeight > e.clientHeight) {
+        e.innerHTML = "<marquee id=\"main-inner\" direction=\"up\"  style=\"height:95%;max-height:inherit\">" + event.data + "</marquee>";
+        
+      }
+      
+	}, false);
+	source.addEventListener('leaderboard', function(event) {
+  		document.getElementById("leaderboard-result").innerHTML = event.data + "<br>";
+	}, false);
+    source.addEventListener('current', function(event) {
+      e = document.getElementById("current-result");
+      e.innerHTML = "<div id=\"current-inner\">" + event.data + "</div>";
+      
+      e2 = document.getElementById("current-inner");
+      if (e2.clientHeight > e.clientHeight) {
+        e.innerHTML = "<marquee id=\"current-inner\" direction=\"up\"  style=\"height:95%;max-height:inherit\">" + event.data + "</marquee>";
+      }
+      
+  		
+	}, false);
+
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+</body>
+
+</html>

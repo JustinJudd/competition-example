@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/static/css/game.css">
+<link type="text/css" rel="stylesheet" href="/static/css/material.min.css">
+
+<script src="/static/js/material.min.js"></script>
+<link rel="stylesheet" href="/static/css/material-icons.css">
+<style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+	  
+    </style>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Robot Competition</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      
+    </div>
+  </header>
+  
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset"><div id="main-result" style="max-height:90vh;"><h3>Please log in</h3>
+        <form action="/admin/login" method="POST">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="username" name="username">
+    <label class="mdl-textfield__label" for="username">Username</label>
+  </div><br>
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="password" name="password">
+    <label class="mdl-textfield__label" for="password">Password</label>
+  </div><br>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Sign In
+</button>
+
+</form></div></div>
+        
+        </div>
+  
+  
+  </div>
+  </main>
+  
+</div>
+
+</body>
+
+</html>

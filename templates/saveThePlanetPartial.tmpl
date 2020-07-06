@@ -1,0 +1,14 @@
+<div class="mdl-grid bigGame">
+    {{range $i, $team := .game.Teams }}
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <div class="team">
+                <h3>{{$team.Name}}</h3>
+                {{ range $j, $player := $team.Players}}
+                <h5>$player.Name</h5>  
+                {{ end }}}
+
+            </div>
+        
+        </div>
+    {{ end }}
+</div>
